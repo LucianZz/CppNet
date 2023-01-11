@@ -89,6 +89,10 @@ void CppNet::SetConnectionCallback(const connect_call_back& cb) {
 }
 
 bool CppNet::Connection(const std::string& ip, uint16_t port) {
+    int n = 10;
+    char *p = malloc(sizeof(int) * 10);
+    int y = n;
+    p[y] = 'a'; // defect: writing to buffer[y] overflow
     return _cppnet_base->Connection(ip, port);
 }
 
